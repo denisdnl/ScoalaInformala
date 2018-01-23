@@ -44,12 +44,85 @@
         <!--Table-->
             <table border="1" style="width:100px;height:100px">
                 <tr>
-                    <td colspan="2"></td>
+                    <td colspan="2">A</td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td>C</td>
+                </tr>
+            </table>
+
+            <table border="1" style="width:100px;height:100px">
+                    <tr>
+                        <td rowspan="2">A</td>
+                        <td>B</td>
+                    </tr>
+                    <tr>
+                        <td>C</td>
+                    </tr>
+                </table>
+            <br/>
+            <table border="1" cellspacing="0" style="width:200px;height:200px">
+                <tr>
+                    <td rowspan="2"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td></td>
+                    <td colspan="2"></td>
                 </tr>
-            </table>
+                <tr>
+                        <td colspan="2"></td>
+                        <td></td>
+                        <td></td>
+                </tr>
+                <tr>
+                        <td colspan="4"></td>
+                </tr>
+            </table> 
+            
+            <!--Formulare-->
+            <input type="TEXT"/><br/>
+
+            <select><!--Doar taguri option-->
+                <option></option>
+            </select><br/>
+
+            <form>
+            <textarea></textarea><br/>
+            <input type="CHECKBOX"/><br/>
+            <input type="RADIO"/><br/>
+            <input type="PASSWORD"/><br/>
+            <label for="pwd">Password</label><input type="PASSWORD" id="pwd"/><br/>
+            <input type="submit"/>
+            </form>
+
+            <br/>
+            <br/>
+            <br/>
+            <form>
+                <label for="nume">Nume</label><input type="Text" id="nume" placeholder="eg John" /><br/>
+                <label for="prenume">Prenume</label><input type="Text" id="prenume" placeholder="eg Ana"/><br/>
+                <label for="sex">Sex</label>
+                    <select id="sex">
+                        <option selected="true"></option>
+                        <option value="M">M</option>
+                        <option value="F">F</option>
+                    </select><br/><br/>
+                <label for="comentarii">Comentarii</label><br/><textarea id="comentarii" placeholder="Orice text..."></textarea><br/><br/>
+                
+            <label>Fav color<br/>
+                <label for="red">Red</label>
+                <input type="radio" name="color" value="Red" id="Red"/>
+                <label for="Yellow">Yellow</label>
+                <input type="radio" name="color" value="Yellow" id="Yellow"/>
+                <label for="blue">BLue</label>
+                <input type="radio" name="color" value="Blue" id="Blue"/><br/>
+            </label><br/>
+            <br/><input type="Submit" value="Trimite"/><br/>
+
+            </form>
     </body>
 </html>
