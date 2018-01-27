@@ -1,0 +1,197 @@
+body{
+	margin:0px;
+}
+
+#headerDiv{
+	position:fixed;
+	top:0px;
+	width:100%;
+	height:140px;
+	background:none;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	z-index:2;
+}
+
+#headerText{
+	width:100%;
+	height:100px;
+	background-color:#FF5A00;
+	text-align:center;
+	color:white;
+	#text-shadow: 2px 2px 4px #000000;
+	font-size:24pt;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	font-style: oblique;
+}
+
+#headerNav{
+	width:100%;
+	height:40px;
+	background-color:#D04900;
+	text-align:center;
+}
+
+#menu{
+	padding: 0;
+	display:inline;
+	height:100%;
+	list-style: none;
+	
+}
+
+#menu li{
+	display:inline-block;
+	width:10%;
+	height:100%;
+	text-align:center;
+	color:white;
+	text-shadow: 2px 2px 4px #000000;
+	vertical-align:middle;
+	padding:0px;
+	box-sizing: border-box;
+	margin:0px;
+}
+
+.menuA{
+	color:white;
+	text-decoration: none;
+	width:100%;
+	height:100%;
+	display: inline-block;
+	text-align:center;
+	vertical-align:middle;
+	margin:auto;
+	padding:0px;
+	margin:0px;
+	border:0px;
+	box-sizing: border-box;
+}
+
+#menu li:hover{
+	background-color: green;
+}
+
+#footer{
+	position:fixed;
+	width:100%;
+	height:50px;
+	background-color:#FF5A00;
+	bottom:0px;
+	box-shadow: 0 -6px 10px 0 rgba(0, 0, 0, 0.5), 0 8px 20px 0 rgba(0, 0, 0, 0.3);
+	display:table; #Nu am nici cea mai vaga idee de ce merge sa pozitionez nenorocitul ala de p la mijloc cand am display:table...dar alta solutie nu am gasit
+}
+
+#footer p{
+	color:white;
+	text-align:right;
+	padding-right:20px;
+	text-shadow: 2px 2px 4px #000000;
+	font-size:8pt;
+	display:table-cell; 
+	vertical-align:middle; 
+	z-index:2;
+}
+
+
+#container{
+	width:100%;
+	height:100%;
+	z-index:1;
+	overflow:hidden;
+	scroll-behavior: smooth;
+	text-align:center;
+}
+
+#home{
+	background-image:url("home_bkg.jpg");
+	background-size:cover;
+	width:100%;
+	height:100%;
+	z-index:1;
+	text-align:center;
+}
+
+#galery{
+	background-image:url("galery_bkg.jpg");
+	background-size:cover;
+	width:100%;
+	height:100%;
+	z-index:1;
+	text-align:center;
+}
+
+#meteo{
+	background-image:url("meteo_bkg.jpg");
+	background-size:cover;
+	width:100%;
+	height:100%;
+	z-index:1;
+	text-align:center;
+}
+
+#contact{
+	background-image:url("contact_bkg.jpg");
+	background-size:cover;
+	width:100%;
+	height:100%;
+	z-index:1;
+}
+
+.contentDiv{
+	display:inline-block;
+	height:100%;
+	width:650px;
+	background-image:url("content_bkg.png");
+	background-size:cover;
+	padding:0px;
+	margin:0px;
+}
+
+#homeTable{
+	padding-left:75px;
+	padding-right:60px;
+	text-align:left;
+	padding-bottom:55px;
+	height:60%;
+}
+
+#meteoTable{
+	position:relative;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+	text-align:center;
+	font-size:17pt;
+	font-family:"Arial Black", Gadget, sans-serif;
+	width:400px;
+	color:#668cff;
+	text-shadow: 1px 1px 1px #000000;
+}
+
+#contactform input , #contactform textarea{
+	display:inline-block;
+	margin-top:2px;
+	width:200px;
+}
+
+#accountArea{
+	width:150px;
+	height:150px;
+	background-color:brown;
+	display:none;
+	box-shadow: -2px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	position:absolute;
+}
+
+#accountul:hover #accountArea{
+	display:block;
+}
+
+#accountul:hover{
+	background-color:brown;
+}
+
+#accountArea input{
+	width:130px;
+	margin-top:20px;
+}
