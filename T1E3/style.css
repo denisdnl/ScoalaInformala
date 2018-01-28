@@ -195,3 +195,38 @@ body{
 	width:130px;
 	margin-top:20px;
 }
+
+#galery{
+	overflow:hidden;
+}
+
+.slide-wrapper {
+  padding-top:140px;
+  padding-bottom:50px;
+  width: 500%;
+  height: 100%;
+  -webkit-animation: slide 30s ease infinite;
+  animation: slide 50s ease infinite;
+  box-sizing:border-box;
+}
+
+
+.slide-image{
+	float:left; 
+	width:20%;/*5 images....entire wrapper is 500% of the screen width(5 times bigger) that means 20%(1/5 images) of the wrapper is the screen width */
+	height:100%;
+}
+
+@-webkit-keyframes slide {
+  0% {margin-left: 0%;}
+  15% {margin-left: 0%;}
+  20% {margin-left: -100%; }
+  35% {margin-left: -100%; }
+  40% {margin-left: -200%; }
+  55% {margin-left: -200%; }
+  60% {margin-left: -300%; }
+  75% {margin-left: -300%; }
+  80% {margin-left: -400%; }
+  95% {margin-left: -400%; }
+  100% {margin-left: 0%; }
+}
