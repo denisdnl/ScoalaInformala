@@ -28,7 +28,8 @@ body{
 
 #footer{
     height: 10%;
-    margin-left: 170px;  
+    padding-left: 170px; 
+    box-sizing: border-box; 
     width:100%;
     float:left;
 }
