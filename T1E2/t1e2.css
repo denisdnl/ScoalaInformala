@@ -28,8 +28,13 @@ body{
 
 #footer{
     height: 10%;
+<<<<<<< HEAD
     padding-left: 170px; 
     box-sizing: border-box; 
+=======
+    padding-left: 170px;  
+>>>>>>> da82e0b539e15675873fbabb5919fc89e0364d06
     width:100%;
     float:left;
+    box-sizing:border-box;
 }

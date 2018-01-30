@@ -1,0 +1,123 @@
+<html>
+	<head>
+		<title>eTargoviste</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	
+	<body>
+		<div id="headerDiv">
+			<div id="headerText" >
+				<span style="position:relative;top:20%;text-align:center">eTargoviste</span>
+				<img src='king.png' width='50' height='50' style='padding-left:10px;position:relative;top:27%' />
+				<ul type="none" style="display:inline-block;position:absolute;right:5px;top:10%;margin-right:10px;width:150px;padding:0px" id="accountul">
+					<li style='font-size:10pt;font-family:"Arial Black", Gadget, sans-serif;font-weight:bold;font-style: normal;'>Cont</li>
+					<li>
+					<div id="accountArea">
+					<input type="text" placeholder="Username"/><br/>
+					<input type="password" placeholder="Password"/><br/>
+					<input type="button" value="Login"/>
+					</div>
+					</li>
+				</ul>
+			</div>
+			<div id="headerNav">
+			<ul id='menu'>
+			<li><a class="menuA" href="#home">
+				<p style="display:inline-block;vertical-align:middle">
+				Home
+				</p>
+			</a></li>
+			<li><a class="menuA" href="#galery">
+				<p style="display:inline-block;vertical-align:middle">
+				Galery
+				</p>
+			</a></li>
+			<li><a class="menuA" href="#meteo">
+				<p style="display:inline-block;vertical-align:middle">
+				Meteo
+				</p>
+			</a></li>
+			<li><a class="menuA" href="#contact">
+				<p style="display:inline-block;vertical-align:middle;padding:0px">
+				Contact
+				</p>
+			</a></li>
+			</ul>
+			</div>
+		</div>
+		
+		<div id="container">
+			<div id="home">
+				<div class="contentDiv">
+					<p style="padding-top:150px;padding-left:90px;padding-right:60px;text-align:left">
+						<strong>Târgoviște</strong> este municipiul de reședință al județului Dâmbovița, Muntenia, România, format din localitățile componente Priseaca și Târgoviște (reședința).<br/> Are o populație de aproximativ 79.000 de locuitori.<br/> Reședință domnească și capitală între 1396 și 1714, orașul a deținut mai bine de trei secole statutul de cel mai important centru economic, politico-militar și cultural-artistic al Țării Românești.<br/> Are o suprafață de 5.040 ha.<br/>
+					</p>
+					<table id='homeTable'>
+					<tr>
+					<td><img src="TurnulChindiei.jpg" width="100%" style="display:block;vertical-align:top"/></td>
+					<td>
+					În timpul domniei lui Mircea cel Bătrân orașul a devenit principala reședință domnească a Țării Românești. <br/>Tot în timpul acestui domnitor a fost refăcută Curtea Domnească, ale cărei ruine împrejmuiesc astăzi Turnul Chindiei; ultimele cercetări arheologice au avansat ideea că o curte a fost ridicată aici înainte de Mircea cel Bătrân.
+					</td>
+					</tr>
+					</table>
+				</div>
+			</div>
+		
+			<div id="galery" style="vertical-align:middle">
+				<div class="slide-wrapper">
+				<img class="slide-image" src="s1.jpg"/>
+				<img class="slide-image" src="s2.jpg"/>
+				<img class="slide-image" src="s3.jpg"/>
+				<img class="slide-image" src="s4.jpg"/>
+				<img class="slide-image" src="s5.jpg"/>
+				</div>
+			</div>
+			<div id="meteo" style="vertical-align:middle;">
+				<div class="contentDiv">
+					<table border="0" id="meteoTable">
+					<tr><td colspan="3">2&#8451;</td></tr>
+					<tr><td colspan="3"><img src="http://files.softicons.com/download/web-icons/android-weather-icons-by-bharath-prabhuswamy/png/512x512/Sunny.png" width="100px" height="100px"/></td></tr>
+					<tr style="font-size:10pt">
+						<td>28/01</td>
+						<td>29/01</td>
+						<td>30/01</td>
+					</tr>
+					<tr style="font-size:13pt">
+						<td>0&#8451;</td>
+						<td>2&#8451;</td>
+						<td>-3&#8451;</td>
+					</tr>
+					<tr>
+						<td><img src="http://files.softicons.com/download/web-icons/android-weather-icons-by-bharath-prabhuswamy/png/512x512/Sunny.png" width="45px" height="45px"/></td>
+						<td><img src="https://cdn4.iconfinder.com/data/icons/weather-conditions/512/heavy_rain_cloud-512.png" width="45px" height="45px"/></td>
+						<td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Snow_flake.svg/2000px-Snow_flake.svg.png" width="45px" height="45px"/></td>
+					</tr>
+					<tr style="height:50px;">  </tr>
+					<tr>
+						<td colspan="3" style="text-align:right"><a style="margin-top:0px" href="http://www.accuweather.com"/><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/AccuWeather_Logo.svg/3000px-AccuWeather_Logo.svg.png" height="20px"/></a>
+						</td>
+					</tr>
+					</table>
+				</div>
+			</div>
+			<div id="contact">
+				<div class="contentDiv" style="text-align:center">
+					<iframe style="display:inline-block;position:static;margin-top:170px;border:0" width="350px" height="200px" src="https://www.google.com/maps/embed/v1/view?key=AIzaSyAFswSLHwpz1MENkhinDV20fsoijw63U3M&center=44.9313995,25.450487&zoom=14&maptype=satellite"></iframe>
+					<form style="display:block;position:static;padding-bottom:50px;" id="contactForm">
+						<input type="text" name="nume" placeholder="Nume: eg: John"/><br/>
+						<input type="text" name="nume" placeholder="Prenume: eg: Smith"/><br/>
+						<input type="text" name="email" placeholder="eMail: eg: john@smith.com"/><br/>
+						<textarea rows="5" placeholder="Comentarii..."></textarea><br/>
+						<input type="submit" value="Trimite"/>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<div id="footer">
+			<p>
+				Stan Denis Daniel
+			</p>
+		</div>
+	</body>
+</html>
