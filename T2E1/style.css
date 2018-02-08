@@ -1,0 +1,175 @@
+body{
+
+    padding:0px;
+    margin:0px;
+    border: 0px;
+    background-color:#232243;
+    text-align: center;
+    overflow: auto;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    background-color:#454465;   
+    position: absolute;
+    top:10%;
+    left:15%;
+    right:15%;
+    bottom: 10%;
+    border-radius: 20px;
+    border: 6px;
+    overflow: auto;
+}
+
+#header{
+    position: absolute;
+    width: 100%;
+    height: 130px;
+    background-color:#454465;
+    top:0px;
+    
+}
+
+#header img{
+    display: inline-block;
+    width:100px;
+    height: 100px;
+    position: absolute;
+    top:15px;
+    left:30px;
+}
+
+#footer{
+    width: 100%;
+    height: 50px;
+    background-color:#644444;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+}
+
+#footer span{
+    position: absolute;
+    color: rgb(226, 225, 224);
+    top:50%;
+    transform: translateY(-50%);
+}
+
+#header span{
+    color: white;
+    position: absolute;
+    font-size:60px;
+    font-style: oblique;
+    font-weight: 700;
+    left:150px;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+#contentDiv p{
+    padding-top: 130px;
+    text-align: left;
+    font-size: 10pt;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+}
+
+@media screen and (max-width: 500px){
+    
+    #contentDiv p{
+        padding-top:20px;
+    }
+#subcontent{
+    flex:1;
+    width: 100%;
+    background-color: white;
+    flex-direction: row;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+#menubar{
+    width: 100%;
+    background-color: white;
+    order: 1;
+}
+
+#contentDIv{
+    flex:1;
+    background-color: white;
+    order:2;
+    width: 100%;
+}
+
+#contentDiv p{
+    padding-top: 10px;
+}
+
+#footer{
+    display: none;
+}
+}
+
+
+
+@media screen and (min-width: 501px){
+
+
+    #subcontent{
+        flex:1;
+        width: 100%;
+        background-color: white;
+        flex-direction: row;
+        display: flex;
+    }
+    
+    #menubar{
+        width: 200px;
+        height: 100%;
+    }
+    
+    #contentDIv{
+        flex:1;
+        height: 100%;
+        width: 100%;
+        background-color: white;
+        overflow: auto;
+    }
+    }
+
+#menuBar ul{
+    list-style-type: none;
+    width: 100%;
+    padding-top:130px;
+    padding-left: 0px;
+    text-align: left;
+    font-size: 10pt;
+}
+
+
+#menuBar li{
+    border-style: dotted;
+    border-color: #886685;
+    border-width: 0px 0px 0.5px 0px;
+    border: 1;
+    padding: 8px 0px 8px 0px;
+}
+
+#menuBar a{
+    text-decoration: none;
+    color:#886685;
+    display: block;
+    padding-left: 15px;
+}
+
+#menuBar p{
+    color:#684f96;
+    padding-left: 15px;
+    font-size: 9pt;
+    text-align: justify;
+    overflow: auto;
+
+}
+

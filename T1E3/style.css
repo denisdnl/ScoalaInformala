@@ -205,7 +205,7 @@ body{
   padding-bottom:50px;
   width: 500%;
   height: 100%;
-  -webkit-animation: slide 30s ease infinite;
+  -webkit-animation: slide 50s ease infinite;
   animation: slide 50s ease infinite;
   box-sizing:border-box;
 }
