@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			function valideaza(e){
+
+				var nume = document.getElementById("nume");
+				var sp = document.getElementById("sp");
+				sp.textContent = nume.value.length;
+            }
+		</script>
+	</head>
+<body style="margin:0;">
+	<div>
+	<form method="post">
+		<fieldset style="border: 1px dashed #676767;">
+		<legend id="lgd" style="border: 1px dashed #676767;border-radius: 10px;padding: 0 5px;">New Account</legend>
+	  
+		<label for="nume">Nume:</label> 
+		<input name="numeleMeu" id="nume" type="text" onkeyup="valideaza(event)"><br>
+	  
+	 </fieldset>
+	 
+	</form>
+</div>
+    <span id="sp" style="display:block;width:100%;height:50px;text-align:right;position:absolute;bottom:0;margin:0">
+	</span>
+
+	</span>
+
+
+</body>
+</html>

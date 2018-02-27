@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			function valideaza(elem,e){
+				e.preventDefault();
+
+				var nume = document.getElementById("nume");
+				var prenume = document.getElementById("prenume");
+				var rezultat = document.getElementById("rezultat");
+				
+				if(nume.value > prenume.value){
+					rezultat.value = "First";
+				}
+
+				if(nume.value < prenume.value){
+					rezultat.value = "Second";
+				}
+				
+				if(nume.value === prenume.value){
+					rezultat.value = "Equal";
+				}
+            }
+		</script>
+	</head>
+<body>
+
+	<form method="post" onsubmit="valideaza(this,event);">
+		<fieldset style="border: 1px dashed #676767;">
+		<legend id="lgd" style="border: 1px dashed #676767;border-radius: 10px;padding: 0 5px;">New Account</legend>
+	  
+		<label for="nume">Nume:</label> 
+		<input name="numeleMeu" id="nume" type="text" onkeydown="onKeyDown(this,event)"><br>
+		
+
+		<label for="prenume">Prenume:</label> 
+		<input name="prenumeleMeu" id="prenume" type="text"><br>
+
+		<label for="rezultat">Rezultat:</label> 
+		<input name="rezultat" id="rezultat" type="text" readonly="true"><br>
+			
+		<br />
+		<br />
+		<input type="submit" value="Salveaza"/>
+	  
+	 </fieldset>
+	</form>
+
+
+
+</body>
+</html>

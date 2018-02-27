@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			function valideaza(elem, e){
+				e.preventDefault();
+				
+				console.log(elem,e);
+				
+				var elemNume = document.getElementById("nume");
+				var elemPrenume = document.getElementById("prenume");
+				var elemPass = document.getElementById("pass");
+				var elemRetype = document.getElementById("retypePass");
+				var elemToc = document.getElementById("toc");
+				
+				console.log(elemNume);
+				console.log(elemPrenume);
+				console.log(elemPass);
+				console.log(elemRetype);
+				console.log(elemToc);
+				
+				if(elemNume.value.length<3){
+					elemNume.style.backgroundColor="red";
+				}else{
+					elemNume.style.backgroundColor="";
+				}
+				if(elemPrenume.value.length<3){
+					elemPrenume.style.backgroundColor="red";
+				}else{
+					elemPrenume.style.backgroundColor="";
+				}
+				if(elemRetype.value!==elemPass.value || elemRetype.value.length<6){
+					elemRetype.style.backgroundColor="red";
+				}else{
+					elemRetype.style.backgroundColor="";
+				}
+				if(!elemToc.checked){
+					elemToc.nextElementSibling.style.backgroundColor="red";
+				}else{
+					elemToc.nextElementSibling.style.backgroundColor="";
+				}
+				console.log(elemNume.value);
+				console.log(elemPrenume.value);
+				console.log(elemPass.value);
+				console.log(elemRetype.value);
+				console.log(elemToc.checked);
+                
+
+                var pwdHasUpperCase = false;
+                var pwdHasLowerCase = false;
+                var pwdHasSpecialChar = false;
+                var pwdHasDigit = false;
+                
+                
+                Array.from(elemPass.value).forEach(chr => {
+                    if(chr >= 'A' && chr <='Z') 
+                           pwdHasUpperCase = true;
+                    if(chr >= 'a' && chr <='z') 
+                           pwdHasLowerCase = true;
+                    if(chr >= '0' && chr <='9') 
+                           pwdHasDigit = true;
+                    if(chr >= '!' && chr <='/' || 
+                        chr >= ':' && chr <='@' ||
+                        chr >= '[' && chr <='`') {
+                           pwdHasSpecialChar = true;
+                    }
+                });
+
+                if(!pwdHasUpperCase ||
+                   !pwdHasLowerCase ||
+                   !pwdHasSpecialChar ||
+                   !pwdHasDigit ||
+                   elemPass.value.length < 6){
+                   elemPass.style.backgroundColor="red";
+                   document.getElementById("lgd").innerText = "Verifica parola";
+                    
+				}else{
+					elemPass.style.backgroundColor="";
+				}
+                   
+
+
+			}
+
+            function onKeyDown(el,ev){
+                var allowedChars = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','x','y','z',' ',"'",'-']
+
+                if(allowedChars.indexOf(ev.key.toLowerCase())=== -1 && ev.keyCode !== 8){
+                    ev.preventDefault();
+                }
+            }
+		</script>
+	</head>
+<body>
+
+	<form method="post" onsubmit="valideaza(this,event);">
+		<fieldset style="border: 1px dashed #676767;">
+		<legend id="lgd" style="border: 1px dashed #676767;border-radius: 10px;padding: 0 5px;">New Account</legend>
+	  
+		<label for="nume">Nume:</label> 
+		<input name="numeleMeu" id="nume" type="text" onkeydown="onKeyDown(this,event)"><br>
+		
+
+		<label for="prenume">Prenume:</label> 
+		<input name="prenumeleMeu" id="prenume" type="text"><br>
+			
+			
+		<label for="pass">Pass:</label> 
+		<input name="parolaMea" id="pass" type="password"><br>
+			
+			
+		<label for="retypePass">Retype Pass:</label> 
+		<input name="dinNouParola" id="retypePass" type="password"><br>
+		
+		
+		<input name="termeniSiConditii" id="toc" type="checkbox" /> <label  for="toc">I agree with Terms & Conditions</label>
+		<br />
+		<br />
+		<input type="submit" value="Salveaza"/>
+	  
+	 </fieldset>
+	</form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			function valideaza(el,e){
+
+			if((e.key < '0' || e.key > '9') && e.keyCode != 8 )
+				e.preventDefault();
+
+            }
+		</script>
+	</head>
+<body style="margin:0;">
+
+	<form method="post">
+		<fieldset style="border: 1px dashed #676767;">
+		<legend id="lgd" style="border: 1px dashed #676767;border-radius: 10px;padding: 0 5px;">New Account</legend>
+	  
+		<label for="nume">Nume:</label> 
+		<input name="numeleMeu" id="nume" type="text" onkeydown="valideaza(this,event)"><br>
+	  
+	 </fieldset>
+	 
+	</form>
+
+
+	</span>
+
+
+</body>
+</html>
