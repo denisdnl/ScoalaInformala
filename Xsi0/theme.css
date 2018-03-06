@@ -1,0 +1,35 @@
+body{
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+}
+
+#container{
+	
+	width: 40%;
+	height:50%;
+	align-self:center;
+}
+
+table{
+	height:100%;
+	width:100%;
+	border-collapse:collapse;
+	text-align:center;
+}
+
+.cellNeutral{
+	background:white;
+}
+
+.cellX{
+	background:url('x.png');
+	background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.cell0{
+	background:url('o.jpg');
+	background-repeat: no-repeat;
+    background-size: 100% 100%;
+}

@@ -1,0 +1,267 @@
+<html>
+	<head>
+	 <link rel="stylesheet" type="text/css" href="theme.css">
+    </head>
+	
+	<script>
+	
+	var cells = [];
+	var isGameStarted = false;
+	var currentPlayer = null;
+	
+	var scoreBoard = {
+	 s_X:0,
+	 s_0:0
+	}
+	
+	var GameCell = {
+		tdEl:null,
+		currentPlayer:null,
+		
+		cellLocked:function(){
+		if(this.currentPlayer === "X" || this.currentPlayer === "0")
+		return true;
+		else
+		return false;
+		},
+		
+		switchToNeutralBkg:function(){
+		var classList = this.tdEl.classList; //Put it back on neutral
+		while (classList.length > 0) {
+			classList.remove(classList.item(0));
+		}
+		classList.add("cellNeutral");
+		},
+		
+		switchToXBkg:function(){
+		var classList = this.tdEl.classList; //Put it back on neutral
+		while (classList.length > 0) {
+			classList.remove(classList.item(0));
+		}
+		classList.add("cellX");
+		},
+		
+		switchTo0Bkg:function(){
+		var classList = this.tdEl.classList; //Put it back on neutral
+		while (classList.length > 0) {
+			classList.remove(classList.item(0));
+		}
+		classList.add("cell0");
+		}
+	}
+	
+	function updateScore(){
+			document.querySelector("#scorX").innerText = "Scor X: "+scoreBoard.s_X;
+			document.querySelector("#scor0").innerText = "Scor 0: "+scoreBoard.s_0;
+	}
+	
+	function setGameOff(){
+		isGameStarted = false;
+		currentPlayer = null;
+		document.getElementById("reset").style.visibility = "hidden";
+		document.getElementById("startX").style.visibility = "visible";
+		document.getElementById("start0").style.visibility = "visible";
+	}
+	function setGameOn(){
+		isGameStarted = true;
+		document.getElementById("reset").style.visibility = "visible";
+		document.getElementById("startX").style.visibility = "hidden";
+		document.getElementById("start0").style.visibility = "hidden";
+	}
+	
+	function changePlayer(player){
+		if(player === 'X')
+			currentPlayer = 'X';
+		if(player === '0')
+			currentPlayer = '0';
+		if(player === '-') //In this case just switch the turn
+			if(currentPlayer === 'X') currentPlayer = '0';
+			else					  currentPlayer = 'X';
+	}
+	
+	function createGameObject(idC){
+		var cell = Object.create(GameCell);
+		cell.currentPlayer = null;
+		cell.tdEl = document.querySelector(idC);
+		cell.switchToNeutralBkg();
+		return cell;
+	}
+	
+	function resetGame(){
+		cells = [];
+		var t1 = createGameObject("#t1");
+		var t2 = createGameObject("#t2");
+		var t3 = createGameObject("#t3");
+		var t4 = createGameObject("#t4");
+		var t5 = createGameObject("#t5");
+		var t6 = createGameObject("#t6");
+		var t7 = createGameObject("#t7");
+		var t8 = createGameObject("#t8");
+		var t9 = createGameObject("#t9");
+		
+		cells.push([t1,t2,t3]);
+		cells.push([t4,t5,t6]);
+		cells.push([t7,t8,t9]);
+		
+		setGameOff();
+		
+	}
+	
+	function startX(){
+		changePlayer("X");
+		setGameOn();
+	}
+	
+	function start0(){
+		changePlayer("0");
+		setGameOn();
+	}
+	
+	function onBodyLoad(){ 
+		resetGame();
+		updateScore();
+	}
+	
+	function findInArray(el){
+		for(var i=0;i<3;i++)
+			for(var j=0;j<3;j++)
+				if(cells[i][j].tdEl.id === el.id)
+					return cells[i][j];
+
+	return null;
+	}
+	
+	function cellOnMouseOut(el,ev){
+		ev.preventDefault();
+		
+		var cell = findInArray(el);
+		if(cell === null) return;
+		
+		if(!cell.cellLocked() && isGameStarted===true){
+			cell.switchToNeutralBkg();
+		}
+	}
+	
+	function cellOnMouseOver(el,ev){
+		ev.preventDefault();
+		
+		var cell = findInArray(el);
+		if(cell === null) return;
+		
+		if(!cell.cellLocked() && isGameStarted===true){
+			if(currentPlayer === "X")
+				cell.switchToXBkg();
+			if(currentPlayer === "0")
+				cell.switchTo0Bkg();
+		}
+	}
+		
+		
+	function checkForWinner(){
+		if(cells[0][0].currentPlayer ===  cells[0][1].currentPlayer && cells[0][1].currentPlayer === cells[0][2].currentPlayer && cells[0][0].currentPlayer !== null){
+			alert("Castigator: "+cells[0][0].currentPlayer);
+			scoreBoard["s_"+cells[0][0].currentPlayer] = scoreBoard["s_"+cells[0][0].currentPlayer] + 1;
+			updateScore();
+			resetGame();
+		}
+		if(cells[1][0].currentPlayer ===  cells[1][1].currentPlayer && cells[1][1].currentPlayer === cells[1][2].currentPlayer && cells[1][0].currentPlayer !== null){
+			alert("Castigator: "+cells[1][0].currentPlayer);
+			scoreBoard["s_"+cells[1][0].currentPlayer] = scoreBoard["s_"+cells[1][0].currentPlayer] + 1;
+			updateScore();
+			resetGame();
+		}
+		if(cells[2][0].currentPlayer ===  cells[2][1].currentPlayer && cells[2][1].currentPlayer === cells[2][2].currentPlayer && cells[2][0].currentPlayer !== null){
+			alert("Castigator: "+cells[2][0].currentPlayer);
+			scoreBoard["s_"+cells[2][0].currentPlayer] = scoreBoard["s_"+cells[2][0].currentPlayer] + 1;
+			updateScore();
+			resetGame();
+		}
+		
+		if(cells[0][0].currentPlayer ===  cells[1][0].currentPlayer && cells[1][0].currentPlayer === cells[2][0].currentPlayer && cells[0][0].currentPlayer !== null){
+			alert("Castigator: "+cells[0][0].currentPlayer);
+			scoreBoard["s_"+cells[0][0].currentPlayer] = scoreBoard["s_"+cells[0][0].currentPlayer] + 1;
+			updateScore();
+			resetGame();
+		}
+		
+		if(cells[0][1].currentPlayer ===  cells[1][1].currentPlayer && cells[1][0].currentPlayer === cells[2][1].currentPlayer && cells[0][1].currentPlayer !== null){
+			alert("Castigator: "+cells[0][1].currentPlayer);
+			scoreBoard["s_"+cells[0][1].currentPlayer] = scoreBoard["s_"+cells[0][1].currentPlayer] + 1;
+			updateScore();
+			resetGame();
+		}
+		
+		if(cells[0][2].currentPlayer ===  cells[1][2].currentPlayer && cells[1][2].currentPlayer === cells[2][2].currentPlayer && cells[0][2].currentPlayer !== null){
+			alert("Castigator: "+cells[0][2].currentPlayer);
+			scoreBoard["s_"+cells[0][2].currentPlayer] = scoreBoard["s_"+cells[0][2].currentPlayer] + 1;
+			updateScore();
+			resetGame();
+		}
+		
+		if(cells[0][0].currentPlayer ===  cells[1][1].currentPlayer && cells[1][1].currentPlayer === cells[2][2].currentPlayer && cells[0][0].currentPlayer !== null){
+			alert("Castigator: "+cells[0][0].currentPlayer);
+			scoreBoard["s_"+cells[0][0].currentPlayer] = scoreBoard["s_"+cells[0][0].currentPlayer] + 1;
+			updateScore();
+			resetGame();
+		}
+		
+		if(cells[0][2].currentPlayer ===  cells[1][1].currentPlayer && cells[1][1].currentPlayer === cells[2][0].currentPlayer && cells[0][2].currentPlayer !== null){
+			alert("Castigator: "+cells[0][2].currentPlayer);
+			scoreBoard["s_"+cells[0][2].currentPlayer] = scoreBoard["s_"+cells[0][2].currentPlayer] + 1;
+			updateScore();
+			resetGame();
+		}
+	}	
+		
+	function cellClick(el,ev){
+		ev.preventDefault();
+		
+		var cell = findInArray(el);
+		if(cell === null) return;
+		
+		if(!cell.cellLocked() && isGameStarted===true){
+			cell.currentPlayer = currentPlayer;
+			changePlayer('-');
+			checkForWinner();
+		}
+		
+	}
+	
+	</script>
+	
+	<body onload="onBodyLoad()">
+	
+	<div id="container">
+	<table border="1">
+	<tr>
+		<td id="t1" onmouseover="cellOnMouseOver(this,event)" onmouseout="cellOnMouseOut(this,event)" onclick="cellClick(this,event)"></td>
+		<td id="t2" onmouseover="cellOnMouseOver(this,event)" onmouseout="cellOnMouseOut(this,event)" onclick="cellClick(this,event)"></td>
+		<td id="t3" onmouseover="cellOnMouseOver(this,event)" onmouseout="cellOnMouseOut(this,event)" onclick="cellClick(this,event)"></td>
+	</tr>
+		<tr>
+		<td id="t4" onmouseover="cellOnMouseOver(this,event)" onmouseout="cellOnMouseOut(this,event)" onclick="cellClick(this,event)"></td>
+		<td id="t5" onmouseover="cellOnMouseOver(this,event)" onmouseout="cellOnMouseOut(this,event)" onclick="cellClick(this,event)"></td>
+		<td id="t6" onmouseover="cellOnMouseOver(this,event)" onmouseout="cellOnMouseOut(this,event)" onclick="cellClick(this,event)"></td>
+	</tr>
+	<tr>
+		<td id="t7" onmouseover="cellOnMouseOver(this,event)" onmouseout="cellOnMouseOut(this,event)" onclick="cellClick(this,event)"></td>
+		<td id="t8" onmouseover="cellOnMouseOver(this,event)" onmouseout="cellOnMouseOut(this,event)" onclick="cellClick(this,event)"></td>
+		<td id="t9" onmouseover="cellOnMouseOver(this,event)" onmouseout="cellOnMouseOut(this,event)" onclick="cellClick(this,event)"></td>
+	</tr>
+	<tr>
+	</tr>
+	<tr>
+		<td><input type="button" id="startX" value="StartX" onclick="startX()"/></td>
+		<td><input type="button" id="reset" value="Reset" onclick="resetGame()"/></td>
+		<td><input type="button" id="start0" value="StartO" onclick="start0()"/></td>
+	</tr>
+	<tr>
+		<td id="scorX"></td>
+		<td></td>
+		<td id="scor0"></td>
+	</tr>
+	</table>
+	</div>
+	</body>
+	
+</html>
