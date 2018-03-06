@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script>
+            function submitF(el,e){
+            e.preventDefault();    
+            document.getElementById("rez").textContent = el.querySelector("[name='nume']").value;
+            }
+        </script>
+    </head>
+    <body>
+        <form onsubmit="submitF(this,event)">
+            <input type="text" name="nume"/>
+            <input type="submit"/>
+        </form>
+        <br/>
+        <form onsubmit="submitF(this,event)">
+            <input type="text" name="nume"/>
+             <input type="submit"/>
+        </form>
+        <br/>
+        <p id="rez">
+        </p>
+    </body>
+</html>

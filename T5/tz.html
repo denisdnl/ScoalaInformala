@@ -1,0 +1,41 @@
+<html>
+    <head>
+
+        <style>
+        .shown{
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+        </style>
+
+        <script>
+            function clickk(el,ev){
+              
+                var query = "name='"+el.getAttribute("linkPar")+"'"; 
+                var par = document.querySelector[query];
+                console.log(query); 
+                document.querySelectorAll("p").forEach(function callback(el){
+                    el.classList.remove("show");
+                    el.classList.remove("shown"); //just to be sure
+                    el.classList.add("shown");
+                });
+                par.classList.remove("shown");
+                par.classList.add("show");
+            }
+        </script>
+
+    </head>
+    <body>
+        <input type="button" value="Toggle1" linkPar="p1" onclick="clickk(this,event)"/>
+        <input type="button" value="Toggle2" linkPar="p2" onclick="clickk(this,event)"/>
+        <input type="button" value="Toggle3" linkPar="p3" onclick="clickk(this,event)"/>
+        <input type="button" value="Toggle4" linkPar="p4" onclick="clickk(this,event)"/>
+        <br/>
+        <p class="shown" name="p1">1</p>
+        <p class="shown" name="p2">2</p>
+        <p class="shown" name="p3">3</p>
+        <p class="shown" name="p4">4</p>
+    </body>
+</html>
