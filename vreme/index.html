@@ -1,0 +1,42 @@
+<html>
+    <head>
+            <link rel="stylesheet" type="text/css" href="style.css">
+            <script src="script.js"></script>
+    </head>
+
+    <body>
+            <div id="searchDiv" class="base-div s-div m-div">
+                <input type="text" placeholder="City" id="cityTxt"/>
+                <input type="button" id="showCurrentWeatherBtn" class="base-btn" value="Afiseaza vremea" onclick="showCurrentWeather(event)"/>
+                <input type="button" id="showPrognoseWeatherBtn" class="base-btn" value="Afiseaza prognoza" onclick="showPrognosis()"/>
+            </div>
+
+            <div id="currentWeatherDiv" class="base-div s-div m-div">
+                <div id="cwdTitleDiv">
+                    Vremea acum
+                    <hr/>
+                </div>
+                <div id="cwdContentDiv">
+                    <div id="cwdContent">
+
+                    </div>
+                    <div id="cwdContentMap">
+                    <iframe class="mapIframe"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div id="prognozaDiv" class="base-div s-div m-div">
+                    <div id="pwdTitleDiv">
+                            Vremea in urmatoarele zile
+                            <hr/>
+                    </div>
+                    <div id="pwdContentDiv">
+                   </div>
+            </div>
+			
+			<div id="loadingModal" class="loadingModalHidden">
+			<img src="https://media.giphy.com/media/cBQBqW7OJblba/giphy.gif"/>
+			</div>
+    </body>
+</html>
