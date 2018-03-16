@@ -1,0 +1,57 @@
+<html>
+    <head>
+            <link rel="stylesheet" type="text/css" href="style.css">
+            <script src="script.js"></script>
+    </head>
+
+    <body>
+		<div id="lista_elevi_wrapper">
+            <p>
+                Lista elevi
+            </p>
+            <div class="divCClass">
+                Nume: <input type="text" id="addStudentTxt"/>&nbsp;&nbsp;<input type="button" value="Adauga elev" onclick="addStudent()"/>
+            </div>
+            <div class="divCClass margin30">
+                <a>Sorteaza ascendent dupa medie note</a><br/>
+                <a>Sorteaza descendent dupa medie note</a><br/>
+                <table id="studentsList" border="0">
+                    <thead>
+                        <tr>
+                        <td class="thx">Nume</td>
+                        <td class="thx">Medie note</td>
+                        <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="note_elevi_wrapper">
+            <input type="button" value="Ascunde notele" onclick="hideGrades()"/><br/>
+
+            <p>
+                    Note elev Dummy
+                </p>
+                <div class="divCClass">
+                    Nota: <input type="text" id="addStudentTxt"/>&nbsp;&nbsp;<input type="button" value="Adauga nota"/>
+                </div>
+                <div class="divCClass margin30">
+                    <a>Sorteaza ascendent notele</a><br/>
+                    <a>Sorteaza descendent notele</a><br/>
+                    <table id="gradesList" border="0">
+                        <thead>
+                            <tr>
+                            <td class="thx">Nota</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+	</body>
+</html>

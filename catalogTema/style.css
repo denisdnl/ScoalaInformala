@@ -1,0 +1,66 @@
+body{
+    border: 0;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-basis: auto;
+}
+
+
+#lista_elevi_wrapper{
+    flex:1;
+    background:#ACFE2F;
+}
+
+#note_elevi_wrapper{
+    flex:1;
+    background: #ADD8E5;
+}
+
+#lista_elevi_wrapper>p{
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.divCClass{
+    width:96%;
+    margin-left:2%;
+    margin-right:2%;
+    border: 1px;
+    border-color:#000000;
+    border-style: solid;
+    padding:1px;
+}
+
+.margin30{
+    margin-top:30px;
+}
+
+.divCClass>a{
+    background:#007F00;
+    color:rgb(247, 247, 247);
+}
+
+.thx{
+    font-weight: bold;
+    font-size: 15px;
+    width:33%;
+}
+
+#studentsList{
+    width:100%;
+    text-align: center;
+    margin-top:10px;
+}
+
+#gradesList{
+    width:100%;
+    text-align: center;
+    margin-top:10px;
+}
+
+#note_elevi_wrapper>p{
+    font-size: 23px;
+    font-weight: bold;
+}
