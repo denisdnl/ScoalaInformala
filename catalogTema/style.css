@@ -16,6 +16,7 @@ body{
 #note_elevi_wrapper{
     flex:1;
     background: #ADD8E5;
+    display: none;
 }
 
 #lista_elevi_wrapper>p{

@@ -10,11 +10,11 @@
                 Lista elevi
             </p>
             <div class="divCClass">
-                Nume: <input type="text" id="addStudentTxt"/>&nbsp;&nbsp;<input type="button" value="Adauga elev" onclick="addStudent()"/>
+                Nume: <input type="text" id="addStudentTxt" onkeypress="keyPressSt(event)"/>&nbsp;&nbsp;<input type="button" value="Adauga elev" onclick="addStudent()"/>
             </div>
             <div class="divCClass margin30">
-                <a>Sorteaza ascendent dupa medie note</a><br/>
-                <a>Sorteaza descendent dupa medie note</a><br/>
+                <a href="javascript:sortAscStudents()">Sorteaza ascendent dupa medie note</a><br/>
+                <a href="javascript:sortDescStudents()">Sorteaza descendent dupa medie note</a><br/>
                 <table id="studentsList" border="0">
                     <thead>
                         <tr>
@@ -36,11 +36,11 @@
                     Note elev Dummy
                 </p>
                 <div class="divCClass">
-                    Nota: <input type="text" id="addStudentTxt"/>&nbsp;&nbsp;<input type="button" value="Adauga nota"/>
+                    Nota: <input type="text" id="addGradeTxt" onkeypress="keyPressGrd(event)"/>&nbsp;&nbsp;<input type="button" value="Adauga nota" onclick="addGrade()"/>
                 </div>
                 <div class="divCClass margin30">
-                    <a>Sorteaza ascendent notele</a><br/>
-                    <a>Sorteaza descendent notele</a><br/>
+                    <a href="javascript:sortAscGrades()">Sorteaza ascendent notele</a><br/>
+                    <a href="javascript:sortDescGrades()">Sorteaza descendent notele</a><br/>
                     <table id="gradesList" border="0">
                         <thead>
                             <tr>
