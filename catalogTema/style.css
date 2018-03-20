@@ -41,6 +41,7 @@ body{
 .divCClass>a{
     background:#007F00;
     color:rgb(247, 247, 247);
+    text-decoration: none;
 }
 
 .thx{
@@ -65,3 +66,4 @@ body{
     font-size: 23px;
     font-weight: bold;
 }
+
