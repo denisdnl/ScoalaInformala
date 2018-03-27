@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="script.js"></script>
+</head>
+
+<body onload="drawContacts()">
+    <div class="lateralDiv"></div>
+    <div class="container">
+
+        <div class="title">
+            Agenda
+        </div>
+        <div id="addArea">
+            <div class="inputsDiv">
+                <label for="nume">Nume:</label>
+                <input type="text" name="nume" id="nume"/>&nbsp;&nbsp;&nbsp;
+                <label for="telefon">Telefon:</label>
+                <input type="number" name="telefon" id="telefon"/>
+            </div>
+            <div id="addBtnArea">
+                <input type="button" onclick="addContact()" value="ADAUGA CONTACT"/>
+            </div>
+        </div>
+        <div id="listArea">
+            <table border="0" id="tableContacts">
+                <thead>
+                    <td>Nume</td>
+                    <td>Telefon</td>
+                    <td></td>
+                    <td></td>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="lateralDiv"></div>
+</body>
+
+</html>
