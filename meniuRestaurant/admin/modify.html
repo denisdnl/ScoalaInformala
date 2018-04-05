@@ -1,0 +1,36 @@
+<html>
+
+<head>
+        <link rel="stylesheet" type="text/css" href="style_modify.css">
+        <script src="script_modify.js"></script>
+</head>
+
+<body onload="loadRecipe()">
+    <div id="container">
+        <div id="header">
+            <div id="hrp">
+                <div>
+                <span>Cald si bun(Admin)</span>
+                </div>
+            </div>
+            <div id="hlp">
+                <input type="button" value="Salveaza reteta" onclick="modifyRecipe()"/>&nbsp;
+                <input type="button" value="Cancel" onclick="cancel()"/> 
+            </div>
+        </div>
+
+        
+        <div id="loadingDiv">
+            <img src="https://thumbs.gfycat.com/AggressiveGrouchyHammerkop-max-1mb.gif"/>
+        </div>
+
+        <div id="content">
+            <input type="text" placeholder="Nume reteta" id="nume_reteta" /><br/>
+            <input type="text" placeholder="Url imagine" id="url_imag" /><br/>
+            <textarea placeholder="Ingrediente" id="ingrediente" rows="6" ></textarea><br/>
+            <textarea placeholder="Reteta" id="reteta" rows="6" ></textarea><br/>
+        </div>
+    </div>
+</body>
+
+</html>

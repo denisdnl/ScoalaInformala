@@ -1,0 +1,110 @@
+body{
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    flex-direction: column;
+}
+
+
+#container{
+    background: #BAF4ED;
+    width:80%;
+    min-height: 200px;
+    flex-basis: auto;
+    flex-grow: 1;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+#header{
+    width: 100%;
+    height:70px;
+    display: flex;
+    flex-direction: row;
+    margin-top:25px;
+}
+
+#hrp{
+    display: flex;
+    flex:3;
+    float:left;
+    height: 100%;
+    flex-direction: column;
+    
+}
+
+#hlp{
+    display: flex;
+    flex:1;
+    height: 100%;
+    margin-right: 10px;
+}
+
+#hlp input{
+    background:#6796F8;
+    border-radius: 5px;
+    align-self: flex-start;
+    justify-self: center;
+    color:white;
+    width:150px;
+    height: 40px;
+    border:0;
+}
+
+#hlp input:hover{
+    background:rgb(78, 114, 190);
+}
+
+#hrp span{
+    color:black;
+    font-size:30px;
+    margin-left:50px;
+    font-weight: bold;
+}
+
+#hrp span{
+    color: #561B8D;
+    font-size:30px;
+    margin-left:50px;
+    font-weight: bold;
+}
+
+#content{
+    width: 100%;
+    min-height: 400px;
+    padding-left:40px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-top:50px;
+}
+
+#content [type="text"]{
+    height: 40px;
+}
+
+#content input{
+    width: 350px;
+    align-self: center;
+}
+
+#content textarea{
+    width: 350px;
+    align-self: center;
+}
+
+
+#loadingDiv{
+    display: none;
+}
+
+
+#content{
+    margin-top:50px;
+    font-size: 25px;
+    font-weight: bold;
+}

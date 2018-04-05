@@ -1,0 +1,32 @@
+<html>
+
+<head>
+        <link rel="stylesheet" type="text/css" href="style_menu.css">
+        <script src="script_menu.js"></script>
+</head>
+
+<body onload="getAllRecipes()">
+    <div id="container">
+        <div id="header">
+            <div id="hrp">
+                <div>
+                <span>Cald si bun</span>
+                </div>
+                <div>
+                <input type="text" id="searchIngBar" placeholder="Ingredient" onkeydown="searchKeyDown(this,event)" /> &nbsp;&nbsp;
+                <input type="button" value="Cauta ingrediente" id="searchForIngredientsBtn"/>
+                </div>  
+            </div>
+            <div id="hlp">
+                <input type="button" value="Contact" onclick="redirectContact()"/> 
+            </div>
+        </div>
+
+        
+        <div id="content">
+
+        </div>
+    </div>
+</body>
+
+</html>
