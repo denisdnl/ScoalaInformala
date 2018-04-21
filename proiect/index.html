@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>-->
+		<script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script> 
+		<link rel="import" href="/bower_components/polymer/polymer.html"> 
+        <script src="utils/cookies.js"></script>
+        <script src="script_index.js"></script>
+        <script src="script_menu.js"></script>
+        <link rel="stylesheet" type="text/css" href="style_index.css">
+        <link rel="import" href="src/ProiectScInf-app/products-list.html">
+    </head>
+    <body onscroll="onScroll()">
+
+        <div id="header">
+            <div id="imgDiv">
+                <a href="javascript:toggleMenu()"><img src="menu_icon.png" onmouseover="menuOnMouseOver()" onmouseout="menuOnMouseOut()"/></a>
+            </div>
+            <div id="title">
+                Talcioc
+            </div>
+
+            <div id="btnDiv" onclick="openCart()">
+                <img src="shopping_logo.png"/>
+                <span>Cos cumparaturi</span>
+            </div>
+        </div>
+
+        <div id="content">
+            <div id="menu" class="hidden">
+                <ul>
+                    <li><a href="asd">About</a></li>
+                    <li><a href="asd">Admin</a></li>
+                </ul>
+            </div>
+            <div id="productsWrapper">
+                <products-list url="https://proiecetscinf.firebaseio.com/.json" show-loader="showLoadingModal" hide-loader="hideLoadingModal">
+
+                </products-list>
+            </div>
+        </div>
+
+        <div id="loadingModal" class="loadingModalHidden">
+			<img src="https://media.giphy.com/media/cBQBqW7OJblba/giphy.gif"/>
+		</div>
+
+    </body>
+</html>

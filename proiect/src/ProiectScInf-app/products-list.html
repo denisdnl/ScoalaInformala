@@ -1,0 +1,84 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="product-cst.html">
+
+<dom-module id="products-list">
+  <template>
+    <style>
+      :host {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-top:85px;
+      }
+    </style>
+        <template is="dom-repeat" items="{{products}}">
+            <product-cst data=[[item]]></product-cst> 
+    
+        </template>
+
+  </template>
+
+  <script>
+
+    class ProductsList extends Polymer.Element {
+      static get is() { return 'products-list'; }
+      static get properties() {
+        return {
+          url: {
+            type: String,
+            value: null
+          },
+          showLoader: {
+            type: String,
+            value: null
+          },
+          hideLoader: {
+            type: String,
+            value: null
+          }
+        };
+      }
+
+      ready(){
+        super.ready();
+        if(this.showLoader !== null){
+          window[this.showLoader]();
+        }
+        var hideLd = this.hideLoader;
+        var xhttp = new XMLHttpRequest();
+ 
+        xhttp.open("GET",this.url,true);
+        xhttp.onload = function(ev){
+            var obj = JSON.parse(ev.currentTarget.responseText);
+            let prods = [];
+
+            for(var k in obj){
+              prods.push({
+                id:k,
+                icon_url:obj[k].icon_url,
+                nume_produs:obj[k].nume_produs,
+                pret:obj[k].pret
+              });
+
+            this.products = prods;
+            }
+            if(hideLd !== null){
+              window[hideLd]();
+        }
+        }.bind(this);
+        xhttp.onerror = function(ev){
+          console.log(ev.error)
+          if(hideLd !== null){
+              window[hideLd]();
+        }
+        }
+
+        xhttp.send();
+
+      }
+    }
+
+    window.customElements.define(ProductsList.is, ProductsList);
+  </script>
+</dom-module>

@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="utils/cookies.js"></script>
+        <script src="script_cart.js"></script>
+        <script src="script_menu.js"></script>
+        <link rel="stylesheet" type="text/css" href="style_cart.css">
+    </head>
+    <body onscroll="onScroll()" ng-app="cartApp" ng-controller="bodyController">
+
+        <div id="header">
+            <div id="imgDiv">
+                <a href="javascript:toggleMenu()"><img src="menu_icon.png" onmouseover="menuOnMouseOver()" onmouseout="menuOnMouseOut()"/></a>
+            </div>
+            <div id="title">
+                Talcioc
+            </div>
+
+
+            <div id="btnDiv" onclick="buy()">
+                <img src="shopping_logo.png"/>
+                <span>Place order: {{getTotal()}}$</span>
+            </div>
+        </div>
+
+        <div id="content">
+            <div id="menu" class="hidden">
+                <ul>
+                    <li><a href="asd">About</a></li>
+                    <li><a href="asd">Admin</a></li>
+                </ul>
+            </div>
+            <div id="productsWrapper">
+                <div id="cartListDiv">
+                    <table>
+                    <tr ng-repeat="prod in cart" class="elemTabel">
+                        <td><img ng-src="{{prod.icon_url}}"/></td>
+                        <td>{{prod.nume_produs}}</td>
+                        <td><button ng-click="minus(prod)">-</button></td>
+                        <td>{{prod.qt}}</td>
+                        <td><button ng-click="plus(prod)">+</button></td>
+                        <td>{{prod.qt * prod.pret}}$</td>
+                    </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="loadingModal" class="loadingModalHidden">
+			<img src="https://media.giphy.com/media/cBQBqW7OJblba/giphy.gif"/>
+		</div>
+
+    </body>
+</html>

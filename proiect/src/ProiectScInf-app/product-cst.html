@@ -1,0 +1,128 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="product-cst">
+  <template>
+    <style>
+      :host {
+        
+        width:200px;
+        height: 200px;
+        flex:1;
+        min-width: 200px;
+        max-width: 200px;
+        margin:15px;
+      }
+
+
+      .imagine img{
+        width:100px;
+        height:100px;
+        
+      }
+
+      .imagine{
+          text-align: center;
+          flex:1;
+          display: flex;
+          align-content: center;
+          justify-content: center;
+      }
+
+      .ct{
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          background-color: rgb(255, 255, 255);
+          box-shadow: -1px 1px 1px 2px rgba(0,0,0,0.05);
+      }
+
+      .ct:hover{
+        box-shadow: 0px 2px 2px 0 rgba(0, 0, 0, 0.05), 4px 6px 8px 0 rgba(0, 0, 0, 0.11);
+      }
+
+      .cont_title{
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          
+      }
+      
+      .cont_title div{
+          flex:1;
+          text-align: center;
+      }
+
+      .cont_title button{
+          width:100%;
+          border:0;
+          background:#1E65B4;
+          padding-left:5px;
+          padding-right: 5px;
+          color:white;
+      }
+
+      .cont_title button:hover{
+        background:#D69142;
+      }
+
+      .addbtnDiv{
+          width:100%;
+          height: 30px;
+          background:#1E65B4;
+          text-align: center;
+      }
+
+      .addbtnDiv:hover{
+        background:#D69142;
+        
+      }
+
+      .addbtnDiv img{
+          height: 30px;
+          width: 30px;
+      }
+
+    </style>
+    <div class="ct">
+    <div class="imagine">
+        <img src="{{data.icon_url}}">
+    </div>
+    <div class="cont_title">
+        <div>{{data.nume_produs}}<br/>[[data.pret]]$</div>
+        <div><button on-tap="showDetails" on-click="showDetails">Detalii</button></div>
+    </div>
+    <div class="addbtnDiv" on-click="addToCart" on-tap="addToCart">
+            <img src="shopping_logo.png"/>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class ProductCst extends Polymer.Element {
+      static get is() { return 'product-cst'; }
+      static get properties() {
+        return {
+          data: {
+            type: Object
+          }
+        };
+      }
+      
+    showDetails(){
+        window.location="/details.html?id="+this.data.id;
+    }
+
+    addToCart(){
+        window.playAnimation();
+        window.addToCart(this.data);
+    }
+
+    }
+
+    window.customElements.define(ProductCst.is, ProductCst);
+  </script>
+</dom-module>
