@@ -1,0 +1,40 @@
+<div id="editModal" class="editModalShown">
+		<div class="detalii-form">
+			<div class="form-line">
+				<div>
+					Nume:
+				</div>
+				<div>
+					<input type="text" id="name" value="NumeDummy"/>
+				</div>
+			</div>
+			<div class="form-line">
+				<div>
+					Adresa:
+				</div>
+				<div>
+					<input type="text" id="address" value="AddressDummy"/>
+				</div>
+			</div>
+			<div class="form-line">
+				<div>
+					Status:
+				</div>
+				<div>
+					Adopted
+				</div>
+			</div>
+			<div class="form-line">
+				<div>
+					Detalii:
+				</div>
+				<div>
+					<textarea>Detalii</textarea>
+				</div>
+			</div>
+			<div class="action-line">
+				<button type="button">Revino</button>
+				<button type="button">Salveaza</button>
+			</div>
+		</div>
+	</div>

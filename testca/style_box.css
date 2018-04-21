@@ -188,6 +188,12 @@ body{
     
 }
 
+
+#cartListDiv div input{
+    width:150px;
+    margin:5px;
+}
+
 @media only screen and (max-width: 480px) {
     #cartListDiv{
         width: 100%;
