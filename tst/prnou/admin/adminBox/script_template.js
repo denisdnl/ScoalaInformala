@@ -145,6 +145,7 @@ function saveDetails(){
                               notes:famList[index].details,
                               coordinates_lat:js.geometry.location.lat,
                               coordinates_long:js.geometry.location.lng,
+                              status:'Unassigned',
                               recipient_id:1}), // must match 'Content-Type' header
     method: 'POST' // *GET, POST, PUT, DELETE, etc.
   }).then(function(){	
