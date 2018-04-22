@@ -183,7 +183,7 @@ function deleteDetails(index) {
 }
 
 function colete() {
-	document.getElementById("nrColete").innerHTML = volunteerList.length +"/"+ famList.length;
+	document.getElementById("nrColete").innerHTML = famList.filter((a)=>{return a.status == 'Adopted'}).length +"/"+ famList.length;
 }
 
 function sorteaza() {
