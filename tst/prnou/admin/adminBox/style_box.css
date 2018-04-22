@@ -46,7 +46,7 @@ body {
   width: 100%;
   flex: 1;
   min-width: 300px;
-  min-height: 450px;
+  min-height: 250px;
 }
 
 #menu {
@@ -211,6 +211,7 @@ body {
       display: flex;
       flex-wrap: wrap;
       flex-basis: auto;
+      min-height:60%;
     }
 
     #famList {

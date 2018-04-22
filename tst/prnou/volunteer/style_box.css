@@ -46,7 +46,7 @@ body {
   width: 100%;
   flex: 1;
   min-width: 300px;
-  min-height: 450px;
+  min-height: 250px;
 }
 
 #menu {
@@ -264,6 +264,7 @@ body {
     #map {
       flex: 1;
       background-color: blue;
+      height: 500px;
       box-shadow: -2px -2px 2px 0 rgba(0, 0, 0, 0.2),
     2px 2px 20px 0 rgba(0, 0, 0, 0.3);
     }
@@ -317,7 +318,6 @@ body {
   #map{
     min-width: 100%;
     width: 100%;
-    height: 200px;
   }
 
   .detalii-form{
@@ -539,7 +539,65 @@ select {
 }
 
 /*lista voluntari*/
-.head {
+.listaPacheteSelectate {
   background-color: lightgrey;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.listaPacheteSelectate table{
+  margin: 0 auto;
+}
+
+.listaPacheteSelectate div {
+  padding: 15px 0 0 35px;
+  padding-top: 125px;
+}
+
+.listaPacheteSelectate td {
+  width: 300px;
+  padding-left: 35px;
+}
+
+.status {
+  display: inline-block;
+  text-align: center;
+}
+
+#listaPachete {
+  list-style-type: none;
+}
+
+.containerPachete {
+  padding-left: 35px;
+  padding-top: 20px;
+}
+
+.containerPachete td {
+  width: 300px;
+}
+
+input[type=button] {
+  background-color: #105B8F;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  margin: 0 ;
+}
+
+input[type=text] {
+  height: 20px;
+  width: 220px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border-color: lightblue;
+  box-shadow: none;
+  margin-left: 40px;
+}
+
+#template, #template_selectat {
+  display: none;
 }
 

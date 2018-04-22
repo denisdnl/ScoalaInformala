@@ -23,17 +23,6 @@ function menuOnMouseOut() {
   document.getElementById("imgDiv").querySelector("img").src = "menu_icon.png";
 }
 
-function sendInitNotification(){
-  fetch("https://magicbox-robertdamoc1.c9users.io/magicbox/api/notifications/send/",{
-    body: new URLSearchParams({type:'Intiala',
-                                phone:'+40758549064',
-                               volunteer_id:1}), // must match 'Content-Type' header
-    method: 'POST' // *GET, POST, PUT, DELETE, etc.
-  }).then(function(response){	
-
-});
-}
-
 function toggleMenu() {
   var menu = document.getElementById("menu");
   if (menu.classList.contains("hidden")) {
@@ -45,121 +34,29 @@ function toggleMenu() {
   }
 }
 
+function sendInitNotification(){
+  fetch("https://magicbox-robertdamoc1.c9users.io/magicbox/api/notifications/send/",{
+    body: new URLSearchParams({type:'Intiala',
+                                phone:'+40758549064',
+                               volunteer_id:1}), // must match 'Content-Type' header
+    method: 'POST' // *GET, POST, PUT, DELETE, etc.
+  }).then(function(response){	
+
+});
+}
+
 
 
 function login(){
   window.location = "actiune.html";
 }
 
-function redraw(){
-  showLoadingModal();
-  getFamilies();
-  getVolunteers();
-
-  famList = famList.filter((a)=>{return a.name !== null});
-  setCookie("famList",JSON.stringify(famList),7);
-  draw();
-}
-
-function getVolunteers(){
-  if(getCookie("volList") == null){
-    setCookie("volList",JSON.stringify(
-        [
-          {
-            id:1,
-            name:"Alex Vasilescu",
-            lat:44.9321597,
-            lon:25.9398524,
-            detalii:"0728234534",
-            address:"Iuliu Maniu, 6, Bucuresti",
-          },
-
-          {
-            id:2,
-            name:"Dana Ilinca",
-            lat:45.7410432,
-            lon:21.1465498,
-            detalii:"0728234534",
-            address:"Iuliu Maniu, 6, Bucuresti",
-            assignee_id:1
-          },
-
-          {
-            id:3,
-            name:"Ion Andreescu",
-            lat:45.6524567,
-            lon:25.5264228,
-            detalii:"Familie nevoiasa, 3 copii",
-            address:"Iuliu Maniu, 6, Cluj",
-            assignee_id:1
-          }
-        ]
-
-
-    ),7);
-  }
-
-  volList = JSON.parse(getCookie("volList"));
-}
-
-function getFamilies(){
-  if(getCookie("famList") == null){
-    setCookie("famList",JSON.stringify(
-        [
-          {
-            id:1,
-            status:"Unassgned",
-            name:"Familia Ion",
-            lat:44.4377401,
-            lon:25.954553,
-            detalii:"Familie nevoiasa, 2 copii",
-            address:"Iuliu Maniu, 6, Bucuresti",
-            assignee_id:null
-          },
-
-          {
-            id:2,
-            status:"Assigned",
-            name:"Familia Georgescu",
-            lat:46.7833002,
-            lon:23.4764283,
-            detalii:"Familie nevoiasa, 3 copii",
-            address:"Iuliu Maniu, 6, Bucuresti",
-            assignee_id:1
-          },
-
-          {
-            id:3,
-            status:"Assigned",
-            name:"Familia Andreescu",
-            lat:47.156116,
-            lon:27.5169305,
-            detalii:"Familie nevoiasa, 3 copii",
-            address:"Iuliu Maniu, 6, Cluj",
-            assignee_id:1
-          },
-
-          {
-            id:4,
-            status:"Assigned",
-            name:"Familia Grigore",
-            lat:47.1971695,
-            lon:27.6600604,
-            detalii:"Familie nevoiasa, 3 copii",
-            address:"Iuliu Maniu, 6, Iasi",
-            assignee_id:1
-          }
-        ]
-
-
-    ),7);
-  }
-
-  famList = JSON.parse(getCookie("famList"));
-}
-
 function draw() {
 
+  var http = new XMLHttpRequest();
+
+  http.onload = function(response){
+    famList = JSON.parse(response.currentTarget.response);
     var tabel = document.getElementById("famList");
     var str = "";
     for(var i = 0; i<famList.length; i++) {
@@ -172,9 +69,15 @@ function draw() {
       str += rand;
     }
     tabel.innerHTML = str;
-
     colete();
     drawMap();
+  }
+
+  http.open("GET","https://magicbox-robertdamoc1.c9users.io/magicbox/api/recipients/");
+  http.send();
+  
+
+	
 }
 
 function drawList(){
@@ -200,7 +103,7 @@ function openEditor(i){
 function populateLoadingModal(index){
     document.getElementById("name").value = famList[index].name;
     document.getElementById("address").value = famList[index].address;
-    document.getElementById("details").value = famList[index].detalii;
+    document.getElementById("details").value = famList[index].details;
     document.getElementById("status").innerHTML = famList[index].status;
     document.getElementById("idHidden").value = index;
 }
@@ -213,20 +116,41 @@ function saveDetails(){
 
     var q = new XMLHttpRequest();
 
+
+
     q.onload = function(rsp){
     var xhttp = new XMLHttpRequest();
     var js = JSON.parse(rsp.currentTarget.response).results[0];
-      famList[index].lat = js.geometry.location.lat;
-      famList[index].lon = js.geometry.location.lng;
+    
+    if( famList[index].id_receipent != -1)
+  fetch("https://magicbox-robertdamoc1.c9users.io/magicbox/api/recipients/update/",{
+    body: new URLSearchParams({name:famList[index].name,
+                              address:famList[index].address,
+                              notes:famList[index].details,
+                              coordinates_lat:js.geometry.location.lat,
+                              coordinates_long:js.geometry.location.lng,
+                              recipient_id:famList[index].recipient_id}), // must match 'Content-Type' header
+    method: 'POST' // *GET, POST, PUT, DELETE, etc.
+  }).then(function(){	
+                        draw();
+                        hideEditModal();
+                    });
+      else
+       
+  fetch("https://magicbox-robertdamoc1.c9users.io/magicbox/api/recipients/insert/",{
+    body: new URLSearchParams({name:famList[index].name,
+                              address:famList[index].address,
+                              notes:famList[index].details,
+                              coordinates_lat:js.geometry.location.lat,
+                              coordinates_long:js.geometry.location.lng,
+                              recipient_id:1}), // must match 'Content-Type' header
+    method: 'POST' // *GET, POST, PUT, DELETE, etc.
+  }).then(function(){	
+                        draw();
+                        hideEditModal();
+                    });             
 
-      setCookie("famList",JSON.stringify(famList),7);
-
-      redraw();
-      hideEditModal();
-    }  
-                                
-
-  
+  } 
 
   var url = "http://maps.google.com/maps/api/geocode/json?address="+famList[index].address;
   q.open("GET",url);
@@ -237,42 +161,125 @@ function saveDetails(){
 
 function deleteDetails(index) {
 	var index = document.getElementById("idHidden").value
-  famList.splice(index,1);
-  setCookie("famList",JSON.stringify(famList),7);
+  //famList.splice(index,1);
+  console.log("request_id="+famList[index].recipient_id);
+  var http = new XMLHttpRequest();
+  http.onload = function(){}
+
+
   
-  redraw();
-  hideEditModal();
+
+  fetch("https://magicbox-robertdamoc1.c9users.io/magicbox/api/recipients/delete",{
+    body: new URLSearchParams({'recipient_id':famList[index].recipient_id}), // must match 'Content-Type' header
+    method: 'POST' // *GET, POST, PUT, DELETE, etc.
+  }).then(function(){	
+                        draw();
+                        hideEditModal();
+                    })
+
+		
 }
 
 function colete() {
-	document.getElementById("nrColete").innerHTML = famList.filter((a)=>{return a.status == "Adopted";}).length +"/"+ famList.length;
+	document.getElementById("nrColete").innerHTML = volunteerList.length +"/"+ famList.length;
 }
 
 function sorteaza() {
 	famList = famList.sort((a,b)=>{
-		if(a.status == "Assigned")
-			return 1;
-		else
-			return 0;
+      return a.name[2]>b.name[2];
 	});
-	draw();
+	drawList();
 }
 
 function adauga() {
+ /* 
+  fetch("https://magicbox-robertdamoc1.c9users.io/magicbox/api/recipients/insert/",{
+    body: new URLSearchParams({name:'dummy',
+                              recipient_id:1}), // must match 'Content-Type' header
+    method: 'POST' // *GET, POST, PUT, DELETE, etc.
+  }).then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    famList.push({
+      id_receipent:myJson.recipient_id
+      });
+*/
+
 famList.push({
-            id:null,
-            status:"Unassigned",
-            name:null,
-            lat:null,
-            lon:null,
-            detalii:null,
-            address:null,
-            assignee_id:null
+  id_receipent:-1
   });
     populateLoadingModal(famList.length - 1);
 	  showEditModal();
 
 }
+
+var famList = [
+  {
+    "name": "Familie Defavorizata 1",
+    "address": "Cluj-Napoca, str. Henri Barbusse",
+    "status": "Adopted",
+    "details": "Numar copii: 1. Intoleranta la gluten",
+    "volunteer": {
+      "name": "Voluntar 1",
+      "contactNumber": "+0740123456"
+    }
+  },
+  {
+    "name": "Familie Defavorizata 2",
+    "address": "Cluj-Napoca, str. Henri Barbusse",
+    "status": "Unassigned",
+    "details": "Numar copii: 3",
+    "volunteer": {}
+  },
+  {
+    "name": "Familie Defavorizata 3",
+    "address": "Cluj-Napoca, str. Henri Barbusse",
+    "status": "Adopted",
+    "details": "Numar copii: 5. Intoleranta la gluten",
+    "volunteer": {
+      "name": "Voluntar 1",
+      "contactNumber": "+0740123456"
+    }
+ }
+]
+
+volunteerList = [
+  {
+    lat:44.4379853,
+    lon:25.9545534,
+    name:"V1"
+  },
+  {
+    lat:45.4379853,
+    lon:23.9545534,
+    name:"V2"
+  },
+  {
+    lat:44.4379853,
+    lon:26.9545534,
+    name:"V3"
+  }
+
+];
+
+needsList = [
+  {
+    lat:46.4379853,
+    lon:25.9545534,
+    name:"N1"
+  },
+  {
+    lat:42.4379853,
+    lon:23.9545534,
+    name:"N2"
+  },
+  {
+    lat:43.4379853,
+    lon:27.9545534,
+    name:"N3"
+  }
+];
 
 function initMap() {
   var myLatLng = {
@@ -293,33 +300,48 @@ function initMap() {
     center: myLatLng
   });
 
+  drawMap();
 }
 
+markers = [];
 function drawMap(){
 
+  var http = new XMLHttpRequest();
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+  }
+
+  markers = [];
+  http.onload = function(response){
+    volunteerList = JSON.parse(response.currentTarget.response);
+    for(var i in volunteerList){
+      var marker = new google.maps.Marker({
+        position: {lat:Number(volunteerList[i].coordinates_lat),
+                    lng:Number(volunteerList[i].coordinates_long)},
+        map: map,
+        title: volunteerList[i].name,
+        icon:'http://maps.google.com/mapfiles/kml/pal4/icon62.png'
+      });
+      markers.push(marker);
+  }
+}
+
+  http.open("GET","https://magicbox-robertdamoc1.c9users.io/magicbox/api/volunteers/");
+  http.send();
 
   
-  for(var i in volList){
-      var marker = new google.maps.Marker({
-        position: {lat:Number(volList[i].lat),
-                    lng:Number(volList[i].lon)},
-        map: map,
-        title: volList[i].name,
-        icon:'http://maps.google.com/mapfiles/kml/pal4/icon62.png'
-  });
-      
-  }
+
 
 	for(var i in famList){
 	  var marker = new google.maps.Marker({
-	    position: {lat:Number(famList[i].lat),
-	               lng:Number(famList[i].lon)},
+	    position: {lat:Number(famList[i].coordinates_lat),
+	               lng:Number(famList[i].coordinates_long)},
 	    map: map,
 	    title: famList[i].name,
 	    icon:'http://maps.google.com/mapfiles/kml/pal3/icon33.png'
     });
     
-    setTimeout(()=>{hideLoadingModal()},Math.random()*500);
+    markers.push(marker);
 	}
 
 }

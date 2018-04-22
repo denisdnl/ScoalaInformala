@@ -34,6 +34,17 @@ function toggleMenu() {
   }
 }
 
+function sendInitNotification(){
+  fetch("https://magicbox-robertdamoc1.c9users.io/magicbox/api/notifications/send/",{
+    body: new URLSearchParams({type:'Intiala',
+                                phone:'+40758549064',
+                               volunteer_id:1}), // must match 'Content-Type' header
+    method: 'POST' // *GET, POST, PUT, DELETE, etc.
+  }).then(function(response){	
+
+});
+}
+
 
 
 function login(){
