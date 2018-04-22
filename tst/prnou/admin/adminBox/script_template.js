@@ -52,7 +52,7 @@ function login(){
 }
 
 function draw() {
-
+  showLoadingModal();
   var http = new XMLHttpRequest();
 
   http.onload = function(response){
@@ -93,6 +93,8 @@ function drawList(){
       str += rand;
     }
     tabel.innerHTML = str;
+
+    hideLoadingModal();
 }
 
 function openEditor(i){
