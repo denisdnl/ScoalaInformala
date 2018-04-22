@@ -155,7 +155,7 @@ function saveDetails(){
 
   } 
 
-  var url = "http://maps.google.com/maps/api/geocode/json?address="+famList[index].address;
+  var url = "https://maps.google.com/maps/api/geocode/json?address="+famList[index].address;
   q.open("GET",url);
   q.send();
 
