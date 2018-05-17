@@ -38,7 +38,7 @@ function drawIngredients(recipes){
 }
 
 function redirectContact(){
-    window.location = "/contact.html";
+    window.location = "contact.html";
 }
 
 function getAllRecipes(){
