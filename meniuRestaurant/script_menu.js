@@ -72,7 +72,7 @@ function getAllRecipes(){
 }
 
 function showRecipe(id){
-    window.location = "showRecipe.html?id="+id;
+    window.location = "showrecipe.html?id="+id;
 }
 
 function searchKeyDown(obj,ev){
