@@ -75,7 +75,7 @@ function showRecipe(id){
     window.location = "showrecipe.html?id="+id;
 }
 
-function searchKeyDown(obj,ev){
+function searchKeyUp(obj,ev){
     if(obj.value.length == 0){
         drawIngredients(allRecipes);
     }
