@@ -8,7 +8,7 @@ var Ingredient = {
 }
 
 function cancel() {
-    window.location = "/admin/index.html"
+    window.location = "index.html"
 }
 
 
