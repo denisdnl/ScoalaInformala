@@ -1,7 +1,7 @@
 var MENU_SERVER_URL = "https://restaurant-7593d.firebaseio.com/menu/";
 
 function cancel(){
-    window.location = "/admin/index.html"
+    window.location = "index.html"
 }
 
 function getParameterByName(name, url) {
