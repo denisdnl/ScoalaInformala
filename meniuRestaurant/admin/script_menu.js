@@ -38,7 +38,7 @@ function drawIngredients(recipes){
 }
 
 function addRecipe(){
-    window.location = "/admin/addRecipe.html";
+    window.location = "addRecipe.html";
 }
 
 function getAllRecipes(){
@@ -99,9 +99,9 @@ function searchKeyDown(obj,ev){
 
 
 function deleteRecipe(key,nume){
-    window.location = "/admin/delete.html?key="+key+"&nume="+nume;
+    window.location = "delete.html?key="+key+"&nume="+nume;
 }
 
 function modifyRecipe(key){
-    window.location = "/admin/modify.html?key="+key;
+    window.location = "modify.html?key="+key;
 }
